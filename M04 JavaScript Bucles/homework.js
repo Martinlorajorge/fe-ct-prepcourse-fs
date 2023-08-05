@@ -5,12 +5,10 @@ function obtenerMayor(x, y) {
 	// Retornar el número más grande.
 	// Si son iguales, retornar cualquiera de los dos.
 	// Tu código:
-	if (x < y) {
-		return y;
-	} else if (y < x) {
+	if (x >= y) {
 		return x;
 	} else {
-		return x, y;
+		return y;
 	}
 }
 
@@ -33,12 +31,13 @@ function conection(status) {
 	// De lo contrario, presumimos que el usuario está "Offline".
 	// Retornar el estado de conexión del usuario.
 	// Tu código:
-	if (status === 1) {
-		return "Online";
-	} else if (status === 2) {
-		return "Away";
-	} else {
-		return "Offline";
+	switch (status) {
+		case 1:
+			return "Online";
+		case 2:
+			return "Away";
+		default:
+			return "Offline";
 	}
 }
 
@@ -52,11 +51,11 @@ function saludo(idioma) {
 	if (idioma === "aleman") {
 		return "Guten Tag!";
 	} else if (idioma === "mandarin") {
-		return "Ni hao!";
-	} else if (idioma === ingles) {
+		return "Ni Hao!";
+	} else if (idioma === "ingles") {
 		return "Hello!";
 	} else {
-		return "Hola";
+		return "Hola!";
 	}
 }
 
@@ -124,15 +123,17 @@ function fizzBuzz(num) {
 	// De lo contrario, retorna false.
 	// Tu código:
 
-	if (num % 3) {
-		return "fizz";
-	} else if (num % 5) {
-		return "buzz";
-	} else if (num % 3 && num % 5) {
-		return "fizzbuzz";
-	} else {
-		return false;
+	var result = "";
+
+	if (num % 3 === 0) {
+		result += "fizz";
 	}
+
+	if (num % 5 === 0) {
+		result += "buzz";
+	}
+
+	return result || false;
 }
 
 function operadoresLogicos(num1, num2, num3) {
@@ -167,18 +168,40 @@ function esPrimo(num) {
 	// [Pista 2]: puedes resolverlo utilizando un `bucle for`.
 	// [Nota]: los números negativos, 0 y 1 NO son números primos.
 	// Tu código:
+
+	if (num <= 1) {
+		return false;
+	}
+
+	for (let i = 2; i <= num / 2; i++) {
+		if (num % i === 0) {
+			return false;
+		}
+	}
+
+	return true;
 }
 
 function esVerdadero(valor) {
 	// Si "valor" es verdadero retornar "Soy verdadero".
 	// Caso contrario, retornar "Soy falso".
 	// Tu código:
+	if (valor) {
+		return "Soy verdadero";
+	} else {
+		return "Soy falso";
+	}
 }
 
 function tieneTresDigitos(num) {
 	// Si el número recibido tiene tres dígitos retornar true.
 	// Caso contrario, retornar false.
 	// Tu código:
+	if (num >= 100 && num <= 999) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 function doWhile(num) {
@@ -186,6 +209,14 @@ function doWhile(num) {
 	// Retornar el valor final.
 	// Utilizar el bucle Do-While.
 	// Tu código:
+	let contador = 0;
+
+	do {
+		num += 5;
+		contador++;
+	} while (contador < 8);
+
+	return num;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
