@@ -163,7 +163,14 @@ function empiezaConNueve(num) {
 function todosIguales(array) {
 	// Si todos los elementos del arreglo son iguales, retornar true.
 	// Caso contrario retornar false.
-	// Tu código:
+	// Tu código:for (let i = 1; i < array.length; i++) {
+	for (let i = 1; i < array.length; i++) {
+		if (array[i] !== array[0]) {
+			return false;
+		}
+	}
+
+	return true;
 }
 
 function mesesDelAño(array) {
@@ -171,18 +178,46 @@ function mesesDelAño(array) {
 	// "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
 	// Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
 	// Tu código:
+	const mesesPedidos = ["Enero", "Marzo", "Noviembre"];
+	const mesesEncontrados = [];
+
+	for (let i = 0; i < array.length; i++) {
+		if (mesesPedidos.includes(array[i])) {
+			mesesEncontrados.push(array[i]);
+		}
+	}
+
+	if (mesesEncontrados.length === mesesPedidos.length) {
+		return mesesEncontrados;
+	} else {
+		return "No se encontraron los meses pedidos";
+	}
 }
 
 function tablaDelSeis() {
 	// Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
 	// La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
 	// Tu código:
+	const tabla = [];
+	for (let i = 0; i <= 10; i++) {
+		tabla.push(6 * i);
+	}
+	return tabla;
 }
 
 function mayorACien(array) {
 	// La función recibe un arreglo con enteros entre 0 y 200.
 	// Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
 	// Tu código:
+	const mayoresACien = [];
+
+	for (let i = 0; i < array.length; i++) {
+		if (array[i] > 100) {
+			mayoresACien.push(array[i]);
+		}
+	}
+
+	return mayoresACien;
 }
 
 /* ----------------------------------------------------------------------------------
@@ -196,6 +231,18 @@ function breakStatement(num) {
 	// la ejecución y retornar el string: "Se interrumpió la ejecución".
 	// [PISTA]: utiliza el statement 'break'.
 	// Tu código:
+	const nuevoArray = [];
+
+	for (let i = 1; i <= 10; i++) {
+		num += 2;
+		nuevoArray.push(num);
+
+		if (num === i) {
+			return "Se interrumpió la ejecución";
+		}
+	}
+
+	return nuevoArray;
 }
 
 function continueStatement(num) {
@@ -205,6 +252,18 @@ function continueStatement(num) {
 	// se continua con la siguiente iteración.
 	// [PISTA]: utiliza el statement 'continue'.
 	// Tu código:
+	const nuevoArray = [];
+
+	for (let i = 1; i <= 10; i++) {
+		if (i === 5) {
+			continue; // Saltar la quinta iteración
+		}
+
+		num += 2;
+		nuevoArray.push(num);
+	}
+
+	return nuevoArray;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
